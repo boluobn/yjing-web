@@ -33,13 +33,13 @@ export const ui = {
       },
       space: {
         title: '空间记忆',
-        body: '在 Vision Pro 把照片墙带入真实空间。视线焦点触发视频播放，ARKit 锚定，照片墙在房间里稳定存在 —— 走进去，看你的回忆。',
+        body: '在 Vision Pro 沉浸空间里，照片自动排成可滚动的照片墙或照片环。墙上视频自动播放、视线移动浏览，单张点击放大到面前细看 —— 走进去，看你的回忆。',
       },
     },
     reel_showcase: {
       eyebrow: '明星功能 · 横跨四端',
       title: '轻点 Play，照片与视频接连而至',
-      body: 'YJing 把文件夹变成连续的视觉流。CADisplayLink 驱动 60fps 滚动，CALayer 双份 tile 平铺实现无限循环，视频播完一次自动接下一帧 —— 从 iPhone 的飞行启动动画，到 Mac 的双份 tile 平铺，再到 Vision Pro 的视线焦点触发，四端共享同一份纯函数布局核心。',
+      body: 'YJing 把文件夹变成连续的视觉流。CADisplayLink 驱动 60fps 滚动，CALayer 双份 tile 平铺实现无限循环，视频播完一次自动接下一帧 —— 从 iPhone 的飞行启动动画，到 Mac 的双份 tile 平铺，再到 Vision Pro 沉浸空间里照片墙的自动播放，四端共享同一份纯函数布局核心。',
       bullets: [
         '60fps 无卡顿滚动，6000+ 项目稳定',
         '竖向 / 横向自由切换',
@@ -90,12 +90,12 @@ export const ui = {
     vision: {
       eyebrow: 'Vision Pro',
       title: '走进你的记忆',
-      body: '把相册搬进 Apple Vision Pro 的空间里。可走动、可缩放、可触发播放的 3D 照片墙，让记忆不再只是手机相册里一格一格的缩略图。',
+      body: '在 Vision Pro 的沉浸空间里，把相册变成围绕在你身边的照片墙或照片环。视线浏览、自动播放、捏合放大 —— 让记忆不再只是手机相册里一格一格的缩略图。',
       features: [
-        { title: '空间照片墙', body: '导入相册照片视频，自动排列成可在沉浸空间里漫游的 3D 照片墙。墙在真实空间中保持 ARKit 稳定锚点。' },
-        { title: '视线焦点播放', body: '墙上的视频跟随你的视线焦点播放。中心播放、循环、动态滚动速度，让视频成为空间的呼吸。' },
-        { title: '空间缩放', body: '单张照片或视频可放大到面前细看，缩放过程平滑可逆。两手捏合即可调整距离与大小。' },
-        { title: 'visionOS 原生', body: 'visionOS 2.2+ 原生 App，SwiftUI + RealityKit + ARKit。自研 ConcurrencyLimiter / AsyncSemaphore 控制媒体加载并发。' },
+        { title: '空间照片墙 / 照片环', body: '导入相册照片视频，自动在沉浸空间中排列成 3D 照片墙或环绕你的照片环。可滚动、可漫游，每一张都触手可及。' },
+        { title: '墙上视频自动播放', body: '照片墙上的视频自动循环播放，跟随墙的滚动节奏自然衔接。中心位置加重播放、动态滚动速度，让视频成为空间的呼吸。' },
+        { title: '点击放大查看', body: '看到喜欢的一张？两手捏合或直接点击即可拉到面前细看，缩放过程平滑可逆，看完松手回到墙上原位。' },
+        { title: 'visionOS 原生', body: 'visionOS 2.2+ 原生 App，SwiftUI + RealityKit + ARKit。自研 ConcurrencyLimiter / AsyncSemaphore 控制媒体加载并发，避免内存峰值。' },
       ],
     },
     universal: {
@@ -149,13 +149,13 @@ export const ui = {
       },
       space: {
         title: 'Memories in Space',
-        body: 'Vision Pro brings your photo wall into real space. Video plays where your eyes focus. ARKit anchoring keeps the wall stable in the room. Walk in. Look around. Remember.',
+        body: 'In Vision Pro’s immersive space, photos arrange into a scrollable wall or a ring that surrounds you. Videos on the wall auto-play, glance to browse, tap to pull a single shot up close. Walk in. Look around. Remember.',
       },
     },
     reel_showcase: {
       eyebrow: 'Signature Feature · Across All Four',
       title: 'Tap Play. Photos and videos flow.',
-      body: 'YJing turns folders into a continuous visual stream. CADisplayLink drives 60fps scrolling. CALayer dual-tile tiling enables infinite loops. Videos auto-advance after a single play. From iPhone’s flight launch animation to Mac’s windowed masonry to Vision Pro’s gaze-triggered playback — all four platforms share the same pure-function layout core.',
+      body: 'YJing turns folders into a continuous visual stream. CADisplayLink drives 60fps scrolling. CALayer dual-tile tiling enables infinite loops. Videos auto-advance after a single play. From iPhone’s flight launch animation to Mac’s windowed masonry to Vision Pro’s auto-playing immersive photo wall — all four platforms share the same pure-function layout core.',
       bullets: [
         '60fps smooth scrolling, stable at 6,000+ items',
         'Vertical / horizontal orientation, your call',
@@ -206,11 +206,11 @@ export const ui = {
     vision: {
       eyebrow: 'Vision Pro',
       title: 'Walk into your memories',
-      body: 'Bring your library into Vision Pro space. A 3D photo wall you can walk around, zoom into, and trigger with a glance. Memories, no longer thumbnail-sized.',
+      body: 'In Vision Pro’s immersive space, your library becomes a scrollable photo wall or a ring that surrounds you. Videos on the wall auto-play, glance to browse, tap to pull close. Memories, no longer thumbnail-sized.',
       features: [
-        { title: 'Spatial Photo Wall', body: 'Imported photos and videos auto-arrange into a 3D wall you can roam in immersive space. ARKit keeps the wall anchored stably in the real room.' },
-        { title: 'Gaze-Focused Playback', body: 'Videos play wherever your eyes focus. Center playback, looping, dynamic scroll speed — videos breathe with the space.' },
-        { title: 'Spatial Zoom', body: 'Pull a single photo or video close for detail. Smooth, reversible. Pinch-to-resize with two hands.' },
+        { title: 'Spatial Wall & Ring', body: 'Imported photos and videos auto-arrange in immersive space — as a 3D wall or a ring that wraps around you. Scrollable, roamable, every shot within reach.' },
+        { title: 'Auto-Playing Wall', body: 'Videos on the wall auto-play and loop, syncing with the wall’s scroll rhythm. Center positions get emphasis, dynamic scroll speed — videos breathe with the space.' },
+        { title: 'Tap to Zoom Close', body: 'Found a favorite? Pinch with both hands or tap to pull it up close for detail. Smooth, reversible. Release and it floats back to its place on the wall.' },
         { title: 'visionOS Native', body: 'Built natively for visionOS 2.2+. SwiftUI + RealityKit + ARKit. Custom ConcurrencyLimiter / AsyncSemaphore controls media loading concurrency to avoid memory peaks.' },
       ],
     },

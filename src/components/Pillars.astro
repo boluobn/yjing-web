@@ -6,10 +6,10 @@ const { locale } = Astro.props;
 const t = ui[locale];
 
 const pillars = [
-  { key: "one_app", icon: "♾️", accent: "from-amber-400/20 to-orange-500/10" },
   { key: "reel", icon: "▶︎", accent: "from-orange-400/20 to-amber-500/10" },
   { key: "privacy", icon: "🔒", accent: "from-amber-300/15 to-yellow-400/5" },
   { key: "space", icon: "◉", accent: "from-orange-500/20 to-amber-300/10" },
+  { key: "one_app", icon: "♾️", accent: "from-amber-400/20 to-orange-500/10" },
 ] as const;
 ---
 <section id="pillars" class="relative px-5 py-24 md:py-32">

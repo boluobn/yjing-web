@@ -23,9 +23,9 @@ const shots = isZh ? [s1, s2, s3] : [s1en, s2en, s3en];
     </header>
 
     <!-- screenshot strip -->
-    <div class="reveal mt-14 grid gap-5 sm:grid-cols-3">
-      {shots.map((shot, i) => (
-        <div class="device-shadow overflow-hidden rounded-[2.4rem] border border-white/10 bg-black ring-1 ring-white/5" style={`transform: translateY(${i === 1 ? "-12px" : "0"})`}>
+    <div class="reveal mt-14 grid items-start gap-5 sm:grid-cols-3">
+      {shots.map((shot) => (
+        <div class="device-shadow overflow-hidden rounded-[2.4rem] border border-white/10 bg-black ring-1 ring-white/5">
           <Image src={shot} alt="" widths={[360, 720]} sizes="(min-width:640px) 30vw, 80vw" class="block h-auto w-full" loading="lazy" />
         </div>
       ))}

@@ -115,6 +115,7 @@ export const ui = {
       copyright: '© 2026 忆境空间 (YJing). All rights reserved.',
       privacy: '隐私政策',
       terms: '服务条款',
+      contact: '联系我们',
     },
   },
   en: {
@@ -231,9 +232,12 @@ export const ui = {
       copyright: '© 2026 YJing. All rights reserved.',
       privacy: 'Privacy',
       terms: 'Terms',
+      contact: 'Contact',
     },
   },
 } as const;
+
+export const CONTACT_EMAIL = 'yjingspace@gmail.com';
 
 export const APP_STORE_VISION_URL =
   'https://apps.apple.com/cn/app/%E5%BF%86%E5%A2%83%E7%A9%BA%E9%97%B4/id6743648639?platform=vision';

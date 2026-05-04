@@ -20,7 +20,7 @@ export const ui = {
     pillars: {
       heading: '四件事，让 YJing 不一样',
       one_app: {
-        title: 'One App. Four Platforms.',
+        title: '一个 App，四端通用',
         body: '一份订阅，iPhone / iPad / Mac / Vision Pro 四端通用。Apple Universal Purchase，付费一次即可登录全部 Apple 设备。',
       },
       reel: {
@@ -99,8 +99,8 @@ export const ui = {
       ],
     },
     universal: {
-      eyebrow: '一个 App. 全部 Apple 设备.',
-      title: 'One App. Every Apple Device.',
+      eyebrow: 'ONE APP · EVERY APPLE DEVICE',
+      title: '一个 App，跨遍 Apple 全家桶',
       body: '通过 Apple Universal Purchase，你支付一次即可在 iPhone、iPad、Mac、Vision Pro 上登录使用同一份忆境空间。设置、订阅、解锁状态在 iCloud 中保持一致。',
       requirements: 'iOS 26 · iPadOS 26 · macOS 26 · visionOS 2.2',
     },

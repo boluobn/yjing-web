@@ -5,68 +5,70 @@ import ipad from "@/assets/hero/ipad.png";
 import mac from "@/assets/hero/mac.png";
 import visionpro from "@/assets/hero/visionpro.png";
 ---
-<div class="relative mx-auto w-full max-w-5xl">
-  <!-- ambient backdrop glow -->
-  <div aria-hidden="true" class="pointer-events-none absolute -inset-x-12 -inset-y-10 -z-10 rounded-[3rem] bg-gradient-to-br from-amber-500/20 via-orange-500/10 to-transparent blur-3xl"></div>
+<!--
+  Family-portrait composition (v3):
+  Desktop  → All 4 devices share a single baseline-aligned flex row
+             (iPad · Mac · iPhone · Vision Pro). No floating, no aspect-ratio
+             container, no empty space. Vision Pro keeps subtle floating motion
+             via transform-only animation that doesn't disturb the baseline.
+  Mobile   → Mac on top, iPad middle, iPhone + Vision Pro paired at bottom.
+  No rotation; clean alignment. Each device fully visible.
+-->
+<div class="relative mx-auto w-full max-w-6xl">
+  <!-- backdrop ambient glow -->
+  <div aria-hidden="true" class="pointer-events-none absolute inset-x-0 top-1/2 -z-10 h-[80%] -translate-y-1/2 rounded-[3rem] bg-gradient-to-br from-amber-500/15 via-orange-500/8 to-transparent blur-3xl"></div>
 
-  <!-- DESKTOP & TABLET: device family lineup with Mac as anchor -->
-  <div class="relative hidden aspect-[16/9] md:block">
-    <!-- Vision Pro: floating accent, top-right -->
-    <div class="absolute right-[2%] top-[2%] w-[18%] motion-safe:animate-[float_6s_ease-in-out_infinite]">
-      <Image
-        src={visionpro}
-        alt="Apple Vision Pro"
-        widths={[280, 560]}
-        sizes="(min-width:1024px) 280px, 18vw"
-        class="block h-auto w-full drop-shadow-[0_30px_50px_rgba(0,0,0,0.55)]"
-      />
-    </div>
-
-    <!-- iPad: left-back layer -->
-    <div class="absolute left-[2%] top-[18%] w-[42%] -rotate-[3deg]" style="z-index: 1;">
+  <!-- DESKTOP / TABLET (≥768px): single row, all 4 devices baseline-aligned -->
+  <div class="hidden items-end justify-center gap-3 md:flex lg:gap-5">
+    <div class="w-[26%]">
       <Image
         src={ipad}
         alt="YJing on iPad"
-        widths={[600, 1200]}
-        sizes="(min-width:1024px) 600px, 42vw"
-        class="block h-auto w-full drop-shadow-[0_40px_60px_rgba(0,0,0,0.6)]"
+        widths={[500, 1000, 1400]}
+        sizes="(min-width:1024px) 480px, 26vw"
+        class="block h-auto w-full drop-shadow-[0_30px_50px_rgba(0,0,0,0.55)]"
       />
     </div>
-
-    <!-- Mac: center anchor, largest -->
-    <div class="absolute left-[18%] top-[10%] w-[64%]" style="z-index: 2;">
+    <div class="w-[44%]">
       <Image
         src={mac}
         alt="YJing on Mac"
-        widths={[900, 1600, 2200]}
-        sizes="(min-width:1024px) 900px, 64vw"
+        widths={[800, 1400, 2000]}
+        sizes="(min-width:1024px) 800px, 44vw"
         class="block h-auto w-full drop-shadow-[0_50px_70px_rgba(0,0,0,0.65)]"
       />
     </div>
-
-    <!-- iPhone: right-front layer, smallest -->
-    <div class="absolute right-[6%] bottom-[2%] w-[20%] rotate-[4deg]" style="z-index: 3;">
+    <div class="w-[12%]">
       <Image
         src={iphone}
         alt="YJing on iPhone"
+        widths={[260, 520]}
+        sizes="(min-width:1024px) 220px, 12vw"
+        class="block h-auto w-full drop-shadow-[0_30px_50px_rgba(0,0,0,0.7)]"
+      />
+    </div>
+    <div class="w-[16%] motion-safe:animate-[float_6s_ease-in-out_infinite]">
+      <Image
+        src={visionpro}
+        alt="Apple Vision Pro"
         widths={[300, 600]}
-        sizes="(min-width:1024px) 300px, 20vw"
-        class="block h-auto w-full drop-shadow-[0_40px_60px_rgba(0,0,0,0.7)]"
+        sizes="(min-width:1024px) 280px, 16vw"
+        class="block h-auto w-full drop-shadow-[0_30px_50px_rgba(0,0,0,0.55)]"
       />
     </div>
   </div>
 
-  <!-- MOBILE: vertical stack -->
-  <div class="grid gap-5 md:hidden">
-    <div class="mx-auto w-[88%]">
-      <Image src={mac} alt="YJing on Mac" widths={[400, 800]} sizes="88vw" class="block h-auto w-full drop-shadow-[0_30px_40px_rgba(0,0,0,0.6)]" />
+  <!-- MOBILE (<768px): clean vertical hierarchy -->
+  <div class="grid gap-7 md:hidden">
+    <div class="mx-auto w-[95%]">
+      <Image src={mac} alt="YJing on Mac" widths={[400, 800]} sizes="95vw" class="block h-auto w-full drop-shadow-[0_30px_40px_rgba(0,0,0,0.6)]" />
     </div>
     <div class="mx-auto w-[78%]">
       <Image src={ipad} alt="YJing on iPad" widths={[400, 800]} sizes="78vw" class="block h-auto w-full drop-shadow-[0_30px_40px_rgba(0,0,0,0.55)]" />
     </div>
-    <div class="grid grid-cols-2 items-center gap-4 px-4">
-      <Image src={iphone} alt="YJing on iPhone" widths={[200, 400]} sizes="40vw" class="block h-auto w-full drop-shadow-[0_30px_40px_rgba(0,0,0,0.6)]" />
-      <Image src={visionpro} alt="Apple Vision Pro" widths={[200, 400]} sizes="40vw" class="block h-auto w-full drop-shadow-[0_30px_40px_rgba(0,0,0,0.5)]" />
+    <div class="grid grid-cols-2 items-end justify-items-center gap-6 px-4">
+      <Image src={iphone} alt="YJing on iPhone" widths={[200, 400]} sizes="40vw" class="block h-auto w-full max-w-[140px] drop-shadow-[0_30px_40px_rgba(0,0,0,0.6)]" />
+      <Image src={visionpro} alt="Apple Vision Pro" widths={[260, 520]} sizes="40vw" class="block h-auto w-full max-w-[200px] drop-shadow-[0_30px_40px_rgba(0,0,0,0.5)]" />
     </div>
   </div>
 </div>

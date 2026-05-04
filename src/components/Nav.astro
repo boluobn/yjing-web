@@ -27,6 +27,7 @@ const otherLabel = isZh ? "EN" : "中";
       <div class="flex items-center gap-3">
         <a
           href={otherLink}
+          data-lang-set={isZh ? "en" : "zh"}
           class="rounded-full border border-white/15 px-3 py-1 text-[12px] text-white/70 transition hover:border-white/40 hover:text-white"
           aria-label={`Switch to ${otherLabel}`}
         >{otherLabel}</a>

@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import Pillars from "@/components/Pillars.astro";
+import ReelShowcase from "@/components/ReelShowcase.astro";
+import PlatformIPhone from "@/components/PlatformIPhone.astro";
+import PlatformIPad from "@/components/PlatformIPad.astro";
+import PlatformMac from "@/components/PlatformMac.astro";
+import PlatformVision from "@/components/PlatformVision.astro";
+import UniversalBanner from "@/components/UniversalBanner.astro";
+---
+<BaseLayout
+  locale="en"
+  title="YJing — One app for iPhone, iPad, Mac, and Vision Pro"
+  description="YJing is a privacy-first media manager. One Apple Universal Purchase covers all four platforms. 60fps cinematic reel playback, multi-layer unlock, and a visionOS spatial photo wall."
+>
+  <Hero locale="en" />
+  <Pillars locale="en" />
+  <ReelShowcase locale="en" />
+  <PlatformIPhone locale="en" />
+  <PlatformIPad locale="en" />
+  <PlatformMac locale="en" />
+  <PlatformVision locale="en" />
+  <UniversalBanner locale="en" />
+</BaseLayout>

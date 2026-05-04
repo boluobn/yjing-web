@@ -1,0 +1,29 @@
+---
+interface Props {
+  class?: string;
+  size?: number;
+}
+const { class: className = "", size = 28 } = Astro.props;
+---
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1024 1024"
+  width={size}
+  height={size}
+  class={className}
+  aria-hidden="true"
+>
+  <defs>
+    <linearGradient id="yj-icon-bg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F58FA0"/>
+      <stop offset="100%" stop-color="#FF8E36"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="225" fill="url(#yj-icon-bg)"/>
+  <g fill="none" stroke="#ffffff" stroke-width="58" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M 512 205 L 778 358 L 778 666 L 512 819 L 246 666 L 246 358 Z"/>
+    <path d="M 512 512 L 512 205"/>
+    <path d="M 512 512 L 246 358"/>
+    <path d="M 512 512 L 778 358"/>
+  </g>
+</svg>

@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import { ui, type Locale } from "@/content/i18n";
+import s1 from "@/assets/screenshots/iphone/iphone-feature-cn-1.jpg";
+import s2 from "@/assets/screenshots/iphone/iphone-feature-cn-2.jpg";
+import s3 from "@/assets/screenshots/iphone/iphone-feature-cn-3.jpg";
+import s1en from "@/assets/screenshots/iphone/iphone-feature-en-1.jpg";
+import s2en from "@/assets/screenshots/iphone/iphone-feature-en-2.jpg";
+import s3en from "@/assets/screenshots/iphone/iphone-feature-en-3.jpg";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = ui[locale].iphone;
+const isZh = locale === "zh";
+const shots = isZh ? [s1, s2, s3] : [s1en, s2en, s3en];
+---
+<section id="iphone" class="relative px-5 py-24 md:py-32">
+  <div class="mx-auto max-w-6xl">
+    <header class="reveal max-w-3xl">
+      <p class="text-[12px] font-medium uppercase tracking-[0.28em] text-amber-400/80">{t.eyebrow}</p>
+      <h2 class="mt-4 text-balance text-3xl font-semibold tracking-tight md:text-5xl">{t.title}</h2>
+      <p class="mt-5 text-balance text-[15.5px] leading-relaxed text-white/65 md:text-lg">{t.body}</p>
+    </header>
+
+    <!-- screenshot strip -->
+    <div class="reveal mt-14 grid gap-5 sm:grid-cols-3">
+      {shots.map((shot, i) => (
+        <div class="device-shadow overflow-hidden rounded-[2.4rem] border border-white/10 bg-black ring-1 ring-white/5" style={`transform: translateY(${i === 1 ? "-12px" : "0"})`}>
+          <Image src={shot} alt="" widths={[360, 720]} sizes="(min-width:640px) 30vw, 80vw" class="block h-auto w-full" loading="lazy" />
+        </div>
+      ))}
+    </div>
+
+    <!-- features grid -->
+    <div class="reveal mt-16 grid gap-3.5 md:grid-cols-2 lg:grid-cols-3">
+      {t.features.map((f) => (
+        <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-5 transition hover:border-white/20 hover:bg-white/[0.05]">
+          <h3 class="text-base font-semibold text-white">{f.title}</h3>
+          <p class="mt-2 text-[13.5px] leading-relaxed text-white/60">{f.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

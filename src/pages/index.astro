@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import Pillars from "@/components/Pillars.astro";
+import ReelShowcase from "@/components/ReelShowcase.astro";
+import PlatformIPhone from "@/components/PlatformIPhone.astro";
+import PlatformIPad from "@/components/PlatformIPad.astro";
+import PlatformMac from "@/components/PlatformMac.astro";
+import PlatformVision from "@/components/PlatformVision.astro";
+import UniversalBanner from "@/components/UniversalBanner.astro";
+---
+<BaseLayout
+  locale="zh"
+  title="忆境空间 (YJing) — 一个 App，跨遍 iPhone、iPad、Mac、Vision Pro"
+  description="忆境空间是隐私优先的多端媒体管理器。Apple Universal Purchase 一次购买四端通用，支持 60fps 沉浸滚动播放，多重解锁，visionOS 空间照片墙。"
+>
+  <Hero locale="zh" />
+  <Pillars locale="zh" />
+  <ReelShowcase locale="zh" />
+  <PlatformIPhone locale="zh" />
+  <PlatformIPad locale="zh" />
+  <PlatformMac locale="zh" />
+  <PlatformVision locale="zh" />
+  <UniversalBanner locale="zh" />
+</BaseLayout>

@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0a0a;
+  --color-bg-soft: #141210;
+  --color-bg-elev: #1a1714;
+  --color-amber: #d97428;
+  --color-amber-soft: #ff6b35;
+  --color-amber-glow: #f0a060;
+  --color-text: #f5f1ea;
+  --color-text-soft: #c9c2b6;
+  --color-text-mute: #807a72;
+  --color-line: #2a251f;
+
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  --shadow-card: 0 30px 60px -20px rgb(0 0 0 / 0.7), 0 18px 36px -18px rgb(217 116 40 / 0.12);
+  --shadow-screen: 0 40px 80px -30px rgb(0 0 0 / 0.85), 0 0 0 1px rgb(255 255 255 / 0.06);
+}
+
+html {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgb(217 116 40 / 0.18) 0%, transparent 60%),
+    radial-gradient(80% 60% at 80% 110%, rgb(255 107 53 / 0.10) 0%, transparent 70%),
+    var(--color-bg);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: var(--color-amber);
+  color: var(--color-bg);
+}
+
+@layer utilities {
+  .text-gradient-amber {
+    background: linear-gradient(135deg, #f0a060 0%, #d97428 60%, #ff6b35 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .glass {
+    background: rgb(20 18 16 / 0.55);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgb(255 255 255 / 0.06);
+  }
+
+  .glass-soft {
+    background: rgb(255 255 255 / 0.04);
+    border: 1px solid rgb(255 255 255 / 0.06);
+    backdrop-filter: blur(20px);
+  }
+
+  .ring-amber-glow {
+    box-shadow: 0 0 0 1px rgb(217 116 40 / 0.4), 0 0 60px -10px rgb(217 116 40 / 0.45);
+  }
+
+  .device-shadow {
+    filter: drop-shadow(0 30px 40px rgb(0 0 0 / 0.55));
+  }
+
+  /* Section reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+}

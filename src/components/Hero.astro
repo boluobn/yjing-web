@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import { ui, type Locale, APP_STORE_UNIVERSAL_URL } from "@/content/i18n";
+import iphoneFolder from "@/assets/screenshots/iphone/iphone-folder-zh.jpg";
+import iphoneFolderEn from "@/assets/screenshots/iphone/iphone-folder-en.jpg";
+import iphoneReel from "@/assets/screenshots/iphone/iphone-reel-1.jpeg";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = ui[locale];
+const isZh = locale === "zh";
+const heroImg = isZh ? iphoneFolder : iphoneFolderEn;
+---
+<section class="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32">
+  <!-- ambient glow -->
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute left-1/2 top-0 h-[700px] w-[1100px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(217,116,40,0.30),transparent)] blur-3xl"></div>
+    <div class="absolute right-0 bottom-0 h-[500px] w-[700px] rounded-full bg-[radial-gradient(closest-side,rgba(255,107,53,0.18),transparent)] blur-3xl"></div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-5">
+    <div class="text-center">
+      <p class="text-[12px] font-medium uppercase tracking-[0.28em] text-amber-400/80">
+        {t.hero.eyebrow}
+      </p>
+      <h1 class="mx-auto mt-6 max-w-4xl text-balance text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
+        <span class="text-gradient-amber">{t.hero.title}</span>
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-balance text-lg text-white/70 md:text-xl">
+        {t.hero.subtitle}
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <a
+          href={APP_STORE_UNIVERSAL_URL}
+          target="_blank"
+          rel="noopener"
+          class="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black shadow-lg shadow-amber-900/30 transition hover:scale-[1.02] hover:bg-[#f0a060]"
+        >{t.hero.cta_primary}</a>
+        <a
+          href="#pillars"
+          class="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white/85 transition hover:border-white/50 hover:text-white"
+        >{t.hero.cta_secondary}</a>
+      </div>
+
+      <!-- four-platform marquee -->
+      <div class="mt-10 flex items-center justify-center gap-6 text-[13px] text-white/55">
+        <span class="flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span>iPhone</span>
+        <span class="flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span>iPad</span>
+        <span class="flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span>Mac</span>
+        <span class="flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span>Vision Pro</span>
+      </div>
+    </div>
+
+    <!-- hero image stage -->
+    <div class="reveal mt-16 md:mt-20">
+      <div class="relative mx-auto max-w-3xl">
+        <div class="absolute -inset-x-12 -inset-y-6 -z-10 rounded-[3rem] bg-gradient-to-br from-amber-500/15 via-orange-500/10 to-transparent blur-2xl"></div>
+        <div class="relative grid grid-cols-2 gap-4 md:gap-6">
+          <div class="device-shadow translate-y-6 overflow-hidden rounded-[2.4rem] border border-white/10 bg-black ring-1 ring-white/5">
+            <Image src={heroImg} alt="YJing folder browse" widths={[420, 840]} sizes="(min-width:768px) 420px, 50vw" class="block h-auto w-full" />
+          </div>
+          <div class="device-shadow -translate-y-6 overflow-hidden rounded-[2.4rem] border border-white/10 bg-black ring-1 ring-white/5">
+            <Image src={iphoneReel} alt="YJing reel playback" widths={[420, 840]} sizes="(min-width:768px) 420px, 50vw" class="block h-auto w-full" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

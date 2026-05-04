@@ -1,0 +1,42 @@
+---
+import { ui, type Locale, APP_STORE_UNIVERSAL_URL } from "@/content/i18n";
+import Icon from "@/components/Icon.astro";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = ui[locale];
+
+const isZh = locale === "zh";
+const otherLink = isZh ? "/en/" : "/";
+const otherLabel = isZh ? "EN" : "中";
+---
+<header class="sticky top-0 z-50 w-full">
+  <div class="glass">
+    <div class="mx-auto flex h-14 max-w-6xl items-center justify-between px-5">
+      <a href={isZh ? "/" : "/en/"} class="flex items-center gap-2.5 font-medium tracking-tight">
+        <Icon size={28} class="rounded-[7px] shadow-lg" />
+        <span class="text-[15px] text-white/90">YJing</span>
+      </a>
+      <nav class="hidden items-center gap-7 text-[13px] text-white/70 md:flex">
+        <a href="#pillars" class="transition hover:text-white">{t.nav.features}</a>
+        <a href="#iphone" class="transition hover:text-white">{t.nav.iphone}</a>
+        <a href="#ipad" class="transition hover:text-white">{t.nav.ipad}</a>
+        <a href="#mac" class="transition hover:text-white">{t.nav.mac}</a>
+        <a href="#vision" class="transition hover:text-white">{t.nav.vision}</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a
+          href={otherLink}
+          class="rounded-full border border-white/15 px-3 py-1 text-[12px] text-white/70 transition hover:border-white/40 hover:text-white"
+          aria-label={`Switch to ${otherLabel}`}
+        >{otherLabel}</a>
+        <a
+          href={APP_STORE_UNIVERSAL_URL}
+          class="hidden rounded-full bg-white px-3.5 py-1.5 text-[12.5px] font-medium text-black transition hover:bg-[#f0a060] sm:inline-block"
+          target="_blank"
+          rel="noopener"
+        >{t.nav.download}</a>
+      </div>
+    </div>
+  </div>
+</header>

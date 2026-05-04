@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import { ui, type Locale } from "@/content/i18n";
+import shotA from "@/assets/screenshots/ipad/ipad-feature-1.jpg";
+import shotB from "@/assets/screenshots/ipad/ipad-feature-2.jpg";
+import shotC from "@/assets/screenshots/ipad/ipad-feature-3.jpg";
+import reelA from "@/assets/screenshots/ipad/ipad-reel-1.jpeg";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = ui[locale].ipad;
+---
+<section id="ipad" class="relative bg-black/30 px-5 py-24 md:py-32">
+  <div class="mx-auto max-w-6xl">
+    <header class="reveal mx-auto max-w-3xl text-center">
+      <p class="text-[12px] font-medium uppercase tracking-[0.28em] text-amber-400/80">{t.eyebrow}</p>
+      <h2 class="mt-4 text-balance text-3xl font-semibold tracking-tight md:text-5xl">{t.title}</h2>
+      <p class="mt-5 text-balance text-[15.5px] leading-relaxed text-white/65 md:text-lg">{t.body}</p>
+    </header>
+
+    <!-- big landscape hero -->
+    <div class="reveal mt-14">
+      <div class="relative mx-auto max-w-5xl">
+        <div class="absolute -inset-x-10 -inset-y-6 -z-10 rounded-[3rem] bg-gradient-to-br from-amber-500/15 via-orange-500/8 to-transparent blur-2xl"></div>
+        <div class="device-shadow overflow-hidden rounded-[2rem] border border-white/10 bg-black ring-1 ring-white/5">
+          <Image src={reelA} alt="" widths={[800, 1400, 1800]} sizes="(min-width:1024px) 1100px, 100vw" class="block h-auto w-full" />
+        </div>
+      </div>
+    </div>
+
+    <!-- secondary screenshot row -->
+    <div class="reveal mt-8 grid gap-4 sm:grid-cols-3">
+      {[shotA, shotB, shotC].map((s) => (
+        <div class="device-shadow overflow-hidden rounded-2xl border border-white/10 bg-black ring-1 ring-white/5">
+          <Image src={s} alt="" widths={[400, 800]} sizes="(min-width:640px) 33vw, 100vw" class="block h-auto w-full" loading="lazy" />
+        </div>
+      ))}
+    </div>
+
+    <!-- features -->
+    <div class="reveal mt-14 grid gap-3.5 md:grid-cols-3">
+      {t.features.map((f) => (
+        <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-5">
+          <h3 class="text-base font-semibold text-white">{f.title}</h3>
+          <p class="mt-2 text-[13.5px] leading-relaxed text-white/60">{f.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

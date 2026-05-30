@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://yjing.app',
+  site: 'https://yjing.org',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
